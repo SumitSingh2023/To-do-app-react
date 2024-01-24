@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boilerplate Code</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="<https://www.unpkg.com/react@18.2.0/umd/react.development.js>"></script>
+  <script src="<https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js>"></script>
+  <script src="<https://unpkg.com/@babel/standalone/babel.min.js>"></script>
+  <script type="text/babel">
+    // Code goes here
+    function TodoApp(task){
+        const [task, setTask] =React.useState("")
+
+        function handleSubmit(event){
+            const inputValue=event.target.value
+            setTask(inputValue)
+        }
+
+    }
+
+    function AddTodo(task){
+        return(
+            <div>
+                <label>
+                    <p>Add Task :</p>
+                    <input type="text"
+                    placeholder="Add Task"/>
+                    <button onClick={handleSubmit}></button>
+                </label>
+            </div>
+        )
+
+    }
+
+    function TodoList(task){
+        return(
+            <>
+              {task.map((ele,index)=>{
+                <ul>
+                    <li key={index}>{task}</li>
+                </ul>
+              })}
+
+
+            </>
+        )
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).
+    render(<TodoApp/>)
+  </script>
+</html>
+
